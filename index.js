@@ -15,8 +15,6 @@ app.use(express.json());
 
 
 
-
-
 app.use(routeApp)
 //listing to port
 const port = 8080;

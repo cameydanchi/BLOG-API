@@ -6,7 +6,10 @@ const blogSchema = new Schema({
     title: {type: String, unique:true},
       author:{type:String },
       description:{type:String},
-     isPublish: {type:String},
+     isPublished:{
+       type:String,
+      enum:['true','false']
+     },
       createdAt: {
         type: Date, default: Date.now},
       updatedAt: { type: Date,default: Date.now},

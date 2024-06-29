@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { addBlogs, delBlogs, getBlogs, getBlogsId, updateBlogs } from "../controllers/controller.js";
+import { addBlogs, delBlogs, getBlogs, getBlogsId, publishUpdateBlogs, updateBlogs, } from "../controllers/controller.js";
 
 // creating router 
 
@@ -12,6 +12,7 @@ routeApp.get('/blog',getBlogs)
 routeApp.get('/blog/:id',getBlogsId)
 routeApp.delete('/blog/:id',delBlogs)
 routeApp.patch('/blog/:id',updateBlogs)
+routeApp.patch('/blog/:id',publishUpdateBlogs)
 
 
 

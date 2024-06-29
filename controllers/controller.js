@@ -17,7 +17,7 @@ export const addBlogs = async (req, res) => {
   export const getBlogs = async (req,res) => {
     try {
         const getBlog = await BlogModel.find();
-        res.json(getBlog);
+        res.status(201).json(getBlog);
     } catch (error) {
         console.log(error)
     }
@@ -29,7 +29,7 @@ export const getBlogsId = async (req,res) =>{
 try {
     
         const getBlogId = await BlogModel.findById(req.params.id);
-        res.json(getBlogId)
+        res.status(201).json(getBlogId)
 } catch (error) {
     console.log(error)
 }
@@ -41,7 +41,7 @@ try {
 export const delBlogs = async (req,res) => {
  try {
      const delBlog = await BlogModel.findByIdAndDelete(req.params.id);
-     res.json(delBlog)
+     res.status(201).json(delBlog)
  } catch (error) {
     console.log(error)
  }
@@ -49,18 +49,27 @@ export const delBlogs = async (req,res) => {
 
 
 //update data from database
-
-
 export const updateBlogs = async (req,res) => {
 
    try {
      const Category = req.body.category;
      const updateBlog = await BlogModel.findByIdAndUpdate(req.params.id,{category:Category})
-     res.json(updateBlog)
+     res.status(201).json(updateBlog)
    } catch (error) {
     console.log(error)
    }
 }
+export const publishUpdateBlogs = async (req,res) => {
+
+    try {
+      const published = req.body.isPublished;
+      const updateBlogI = await BlogModel.findByIdAndUpdate(req.params.id,{isPublished:published})
+      res.status(201).json(updateBlogI)
+    } catch (error) {
+     console.log(error)
+    }
+ }
+ 
 
 
 
@@ -71,7 +80,3 @@ export const updateBlogs = async (req,res) => {
 
 
 
-
-
-
-// pas: svSlPS6zuLuJqQN6
