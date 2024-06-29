@@ -53,22 +53,13 @@ export const updateBlogs = async (req,res) => {
 
    try {
      const Category = req.body.category;
-     const updateBlog = await BlogModel.findByIdAndUpdate(req.params.id,{category:Category})
+     const published = req.body.isPublished;
+     const updateBlog = await BlogModel.findByIdAndUpdate(req.params.id,{category:Category,isPublished:published})
      res.status(201).json(updateBlog)
    } catch (error) {
     console.log(error)
    }
 }
-export const publishUpdateBlogs = async (req,res) => {
-
-    try {
-      const published = req.body.isPublished;
-      const updateBlogI = await BlogModel.findByIdAndUpdate(req.params.id,{isPublished:published})
-      res.status(201).json(updateBlogI)
-    } catch (error) {
-     console.log(error)
-    }
- }
  
 
 
